@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Jelly Smack</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link type="text/css"  rel="stylesheet" href="/styles.css">
+
+</head>
+
+<body>
+
+<a href="" id="downlink" style="display: none" download="">Bingo!</a>
+
+
+<form action="/download" method="post" class="form2">
+    <h1 class="heading">Video Downloader </h1>
+    <input name="video_url" class="URL-input" placeholder="Video URL">
+    <button type="submit" class="convert-button">Download</button>
+</form>
+
+<%
+if(dlmsg){
+%>
+    <div class="success">We downloaded your file, check it on the output folder !</div>
+<%
+}
+%>
+
+<%
+if(load){
+%>
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<%
+}
+%>
+
+<form action="/convert" enctype="multipart/form-data" method="post" class="form2">
+    <h1 class="heading2">Video Converter </h1>
+    <input type="file" name="input_f" class="URL-input" >
+    <select name="cat">
+        <option value="yt">YouTube - 16:9 </option>
+        <option value="story">Story Insta - TikTok</option>
+        <option value="fb_post">Facebook - Instagram</option>
+    </select>
+    <button type="submit" class="convert-button">Convert</button>
+</form>
+
+<%
+   if(showmsg){
+ %>
+<div class="success">Your converted file is ready in the output folder !</div>
+<%
+    }
+ %>
+
+
+<form action="/download" method="post" class="form2">
+    <h1 class="heading">Download & Convert </h1>
+    <input name="video_url" class="URL-input" placeholder="Video URL">
+    <button type="submit" class="convert-button">Download</button>
+</form>
+</body>
+</html>
